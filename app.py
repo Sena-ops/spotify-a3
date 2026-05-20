@@ -139,7 +139,7 @@ pagina = st.sidebar.radio("Ir para:", [
 ])
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("**Projeto A3 — Inteligência Artificial**")
+st.sidebar.markdown("**Projeto A3**")
 st.sidebar.markdown(f"Dataset: **{len(df):,}** músicas")
 st.sidebar.markdown(f"Features: **{len(m['FEATURES'])}** atributos")
 
@@ -148,7 +148,7 @@ st.sidebar.markdown(f"Features: **{len(m['FEATURES'])}** atributos")
 # ============================================================
 if pagina == "🏠 Visão Geral":
     st.title("🎵 O que faz uma música ser popular no Spotify?")
-    st.markdown("### Projeto A3 — Inteligência Artificial | KDD Completo")
+    st.markdown("### Projeto A3")
     st.markdown("---")
 
     col1, col2, col3, col4 = st.columns(4)
