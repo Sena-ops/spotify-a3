@@ -512,8 +512,10 @@ elif pagina == "🔴 Regressão Linear":
         fig_c.add_vline(x=0, line_color="white", line_width=1)
         fig_c.update_layout(coloraxis_showscale=False)
         st.plotly_chart(fig_c, use_container_width=True)
-        st.info(f"🟢 Maior impacto positivo: **{coefs.idxmax()}** ({coefs.max():+.4f})  
-🔴 Maior impacto negativo: **{coefs.idxmin()}** ({coefs.min():+.4f})")
+        st.info(
+            f"🟢 Maior impacto positivo: **{coefs.idxmax()}** ({coefs.max():+.4f})\n"
+            f"🔴 Maior impacto negativo: **{coefs.idxmin()}** ({coefs.min():+.4f})"
+        )
 
     with tab3:
         residuos = y_reg_test.values - y_pred_reg
@@ -564,11 +566,12 @@ elif pagina == "📈 Comparação dos Modelos":
     with col1:
         # Gráfico de barras comparativo
         df_comp = pd.DataFrame({
-            "Algoritmo": ["K-Means
-(Silhouette)","Árvore
-(Acurácia)","Árvore
-(F1)","Regressão
-(R²×10)"],
+            "Algoritmo": [
+                "K-Means (Silhouette)",
+                "Árvore (Acurácia)",
+                "Árvore (F1)",
+                "Regressão (R²×10)",
+            ],
             "Score": [sil, acc, f1, r2*10],
             "Cor": CORES_4[:4]
         })
@@ -600,17 +603,23 @@ elif pagina == "📈 Comparação dos Modelos":
     st.markdown("### 💡 Análise Comparativa")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.info(f"**🔵 K-Means**  
-Silhouette = {sil:.4f}  
-Encontrou 4 perfis sonoros reais, mas com separação moderada — músicas tendem a ter características mistas.")
+        st.info(
+            f"**🔵 K-Means**\n"
+            f"Silhouette = {sil:.4f}\n"
+            f"Encontrou 4 perfis sonoros reais, mas com separação moderada — músicas tendem a ter características mistas."
+        )
     with col2:
-        st.success(f"**🟢 Árvore de Decisão**  
-Acurácia = {acc:.1%}  
-Melhor performance geral. Gênero musical é a feature decisiva (68% da importância).")
+        st.success(
+            f"**🟢 Árvore de Decisão**\n"
+            f"Acurácia = {acc:.1%}\n"
+            f"Melhor performance geral. Gênero musical é a feature decisiva (68% da importância)."
+        )
     with col3:
-        st.error(f"**🔴 Regressão Linear**  
-R² = {r2:.4f} ({r2*100:.1f}%)  
-Revela que popularidade depende principalmente de fatores NÃO sonoros.")
+        st.error(
+            f"**🔴 Regressão Linear**\n"
+            f"R² = {r2:.4f} ({r2*100:.1f}%)\n"
+            f"Revela que popularidade depende principalmente de fatores NÃO sonoros."
+        )
 
 # ============================================================
 # PÁGINA: EXPLORADOR
